@@ -23,8 +23,9 @@ public class DemoClass implements DemoInterface1, DemoInterface2
         obj.display();
     }
 
+
     @Override
     public void display() {
-        DemoInterface1.super.display();
+        DemoInterface2.super.display();
     }
 }
