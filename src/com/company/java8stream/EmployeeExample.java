@@ -25,6 +25,17 @@ public class EmployeeExample {
         employeeList.add(new Employee(7,"Wael",50, "male","GIS",2000,22000));
 
 
+
+        Map<String, Long> genderclassification = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+        genderclassification.forEach(new BiConsumer<String, Long>() {
+            @Override
+            public void accept(String s, Long aLong) {
+                System.out.println(s + " " + aLong);
+            }
+        });
+
+        exit(0);
+
         Map<String, Long> numberofemployeedepartmentwise = employeeList.stream().collect(
                 Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
 
